@@ -16,7 +16,7 @@ def get_knowledge_graph(query):
         endpoint = 'https://kgsearch.googleapis.com/v1/entities:search'
         params = {
             'query': query,
-            'limit': 100,
+            'limit': 1,
             'indent': True,
             'key': os.getenv('KGS_API_KEY')
         }
@@ -63,5 +63,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     info = get_data(args.query)
-    info.to_csv(os.path.join(ROOT, 'GKG_results_for_' + args.query + '.csv'))
+    info.to_csv(os.path.join(ROOT, 'GKGS_results_for_' + args.query + '.csv'))
     print(info.head(50))
